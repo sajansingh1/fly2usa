@@ -1327,133 +1327,93 @@ window.addEventListener("resize",()=>{
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-.contact-form-box{
-    max-width:720px;
-    margin:80px auto;
-    padding:45px 50px;
-    background:#ffffff;
-    border-radius:18px;
-    box-shadow:0 0 0 1px #e6edf3;
-    font-family:'Inter', sans-serif;
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+  padding: 40px;
 }
 
-.contact-form-box h2{
-    font-size:28px;
-    font-weight:700;
-    color:#0b3fa5;
-    margin-bottom:35px;
+.form-box {
+  max-width: 600px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-.form-group{
-    margin-bottom:25px;
+h2 {
+  color: #0a3ea1;
 }
 
-.form-group label{
-    display:block;
-    font-size:15px;
-    font-weight:600;
-    margin-bottom:8px;
-    color:#1b1b1b;
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea{
-    width:100%;
-    padding:14px 16px;
-    font-size:16px;
-    border:1.5px solid #cfd8e3;
-    border-radius:10px;
-    outline:none;
-    transition:.2s;
-}
-
-.form-group textarea{
-    height:120px;
-    resize:none;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder{
-    color:#888;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-    border-color:#0b3fa5;
-}
-
-.submit-btn{
-    width:100%;
-    padding:16px;
-    font-size:18px;
-    font-weight:600;
-    border:none;
-    border-radius:12px;
-    cursor:pointer;
-    color:#fff;
-    background:linear-gradient(90deg,#0b3fa5,#0056d6);
-}
-
-.submit-btn:hover{
-    opacity:0.95;
-}
-
-/* Mobile */
-@media(max-width:600px){
-    .contact-form-box{
-        padding:35px 25px;
-    }
+button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, #0a3ea1, #0d5bd7);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 </style>
+</head>
 
-<div class="contact-form-box">
+<body>
 
-    <h2>Send us a Message</h2>
+<div class="form-box">
+  <h2>Send us a Message</h2>
 
-    <form>
+  <input type="text" id="name" placeholder="Your name" required>
+  <input type="email" id="email" placeholder="your@email.com" required>
+  <input type="text" id="phone" placeholder="+91-XXXXXXXXXX" required>
 
-        <div class="form-group">
-            <label>Full Name *</label>
-            <input type="text" placeholder="Your name" required>
-        </div>
+  <select id="visa">
+    <option>F1 Student Visa</option>
+    <option>B1/B2 Tourist Visa</option>
+    <option>Work Visa</option>
+    <option>PR Visa</option>
+  </select>
 
-        <div class="form-group">
-            <label>Email Address *</label>
-            <input type="email" placeholder="your@email.com" required>
-        </div>
+  <textarea id="message" rows="5" placeholder="Tell us how we can help you..."></textarea>
 
-        <div class="form-group">
-            <label>Phone Number *</label>
-            <input type="tel" placeholder="+91-XXXXXXXXXX" required>
-        </div>
-
-        <div class="form-group">
-            <label>Visa Type *</label>
-            <select required>
-                <option>F1 Student Visa</option>
-                <option>B1/B2 Visitor Visa</option>
-                <option>H1B Work Visa</option>
-                <option>PR / Green Card</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>Message *</label>
-            <textarea placeholder="Tell us how we can help you..." required></textarea>
-        </div>
-
-        <button class="submit-btn">Send Message</button>
-
-    </form>
-
+  <button onclick="sendWhatsApp()">Send Message</button>
 </div>
 
+<script>
+function sendWhatsApp() {
 
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let phone = document.getElementById("phone").value;
+  let visa = document.getElementById("visa").value;
+  let message = document.getElementById("message").value;
 
+  let whatsappNumber = "918685004647"; // ← your WhatsApp number
 
+  let text =
+    "Hello 👋%0A%0A" +
+    "*Name:* " + name + "%0A" +
+    "*Email:* " + email + "%0A" +
+    "*Phone:* " + phone + "%0A" +
+    "*Visa Type:* " + visa + "%0A%0A" +
+    "*Message:* %0A" + message;
 
+  let url = "https://wa.me/" + whatsappNumber + "?text=" + text;
 
+  window.open(url, "_blank");
+}
+</script>
 
-  
+</body>
+</html>
