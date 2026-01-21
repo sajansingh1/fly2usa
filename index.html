@@ -547,13 +547,13 @@ window.addEventListener("resize",()=>{
     background:linear-gradient(135deg,#0a3d91,#2d3643);
     padding:40px;
     border-radius:18px;
-    /* remove color:white from here if you prefer, we'll set individually */
+   
 }
 
 .visa-box h2,
 .visa-box p,
 .visa-box span{
-    color:white; /* ensures visibility */
+    color:white; 
 }
 
 .visa-box p{
@@ -826,14 +826,19 @@ window.addEventListener("resize",()=>{
 
 /* Blue header */
 .interview-header{
-    background:linear-gradient(135deg,#0a3d91,#0b55c4);
-    padding:30px 40px;
-    color:#fff;
+    background: linear-gradient(135deg, #0a3d91, #0b55c4);
+    padding: 30px 40px;
+    color: #ffffff;
+    opacity: 1; /* IMPORTANT */
+}
+
+.interview-header *{
+    color: #ffffff !important; /* force all content white */
 }
 
 .interview-header h2{
-    font-size:28px;
-    font-weight:700;
+    font-size: 28px;
+    font-weight: 700;
 }
 
 /* Question cards */
