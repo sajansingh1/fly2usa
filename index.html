@@ -544,15 +544,16 @@ window.addEventListener("resize",()=>{
 
 .visa-box{
     flex:1;
-    background:linear-gradient(135deg,#0a3d91,#0b55c4);
-    color:white;
+    background:linear-gradient(135deg,#0a3d91,#2d3643);
     padding:40px;
     border-radius:18px;
+    /* remove color:white from here if you prefer, we'll set individually */
 }
 
-.visa-box h2{
-    font-size:28px;
-    margin-bottom:15px;
+.visa-box h2,
+.visa-box p,
+.visa-box span{
+    color:white; /* ensures visibility */
 }
 
 .visa-box p{
@@ -1372,8 +1373,6 @@ button {
   <select id="visa">
     <option>F1 Student Visa</option>
     <option>B1/B2 Tourist Visa</option>
-    <option>Work Visa</option>
-    <option>PR Visa</option>
   </select>
 
   <textarea id="message" rows="5" placeholder="Tell us how we can help you..."></textarea>
